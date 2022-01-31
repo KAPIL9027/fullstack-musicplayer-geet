@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href = "/home.css" rel = "stylesheet">
+    <title>Geet Official Home Page</title>
+</head>
+<body>
+    <div class = "nav-bar">
+        <div class = "nav-title">
+            <b>Geet</b>
+        </div>
+                <a href = "#" class = "toggle-button">
+                    <span class = "bar"></span>
+                    <span class = "bar"> </span>
+                    <span class = "bar"></span>
+                </a>
+            <div class="nav-links">
+                <ul>
+                    <li class = "nav-link">
+                        <a href = "/">Home</a>
+                    </li>
+                    <li class = "nav-link">
+                       <a href = "/geets/new">Add</a>
+                   </li>
+                   <li class = "nav-link">
+                       <a href = "/geets">Geets</a>
+                   </li>
+                   <% if(!currentUser){ %>
+                   <li class = "nav-link">
+                       <a href = "/login">Login</a>
+                   </li>
+                   <li class = "nav-link">
+                       <a href = "/register">Register</a>
+                   </li>
+                   <% }else{ %>
+                   <li class = "nav-link">
+                       <a href = "/logout">Logout</a>
+                   </li>
+                   <% } %>
+                </ul>
+            </div>  
+    </div>
+
+    <div class = "content">
+        <h1 class = "texts">Welcome to Geet,</h1>
+        <p class = "texts">Share your own geets with other and Listen to unlimited high quality geets.</p>
+        <a class = "main-button" href = "/geets">Explore</a>
+    </div>
+
+    <script src = "/home.js"></script>
+</body>
+</html>

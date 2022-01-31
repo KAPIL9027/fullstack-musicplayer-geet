@@ -1,0 +1,29 @@
+<% layout('../layout/boilerplate.ejs') %>
+<link href = "/index.css" rel = "stylesheet">
+<div class = "container" id = "container">
+    <% for(geet of geets){ %>
+        <div class="card mb-5" style="width: 18rem;">
+           <% if(geet.images.length){ %>
+            <img src="<%=geet.images[0].url%>" class="img-thumbnail card-img-top" alt="...">
+            <% } %>
+            <% if(!geet.images.length){ %>
+                <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" class="card-img-top" alt="...">
+            <%}%>
+            <div class="card-body">
+              <h5 class="card-title"><%=geet.songName%></h5>
+              <p class="card-text lead">by <%=geet.artist%></p>
+              
+            </div>
+            <div class="card-footer foot">
+              
+                <a href = "/geets/<%=geet._id%>" class="btn btn-outline-primary">Details</a>
+                
+                <% if(currentUser){ %>
+                <span ><i class="fas fa-play" id = "<%=geet.songName%>" ></i></span>
+                <% } %>
+
+            </div>
+          </div>
+        <% } %>
+</div>
+<script src = "/script.js"></script>

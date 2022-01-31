@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Roboto:wght@100;900&display=swap');
+*{
+    box-sizing: border-box;
+    
+}
+body
+{
+    height: 100vh;
+    background-image: url('https://images.pexels.com/photos/1037992/pexels-photo-1037992.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.nav-bar
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0,0);
+    width: 100%;
+}
+.nav-title
+{
+    margin: 0.3rem 1.5rem;
+    padding: 0.5rem;
+    font-size: 1.6rem;
+    color: white;
+}
+.nav-links ul
+{
+    margin: 0;
+    padding: 0;
+    gap: 5px;
+    display: flex;
+}
+
+.nav-links li
+{
+   list-style: none;
+}
+
+.nav-link a
+{
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    color: white;
+    font-size:1rem;
+}
+
+.nav-link a:hover
+{
+    background-color: rgba(255, 182, 193,0.8);
+    border-radius: 7px;
+    transition: background-color 0.4s ease-in;
+}
+
+.toggle-button
+{
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.bar
+{
+    width: 100%;
+    height: 3px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+@media(max-width: 600px)
+{
+.toggle-button
+{
+    display: flex;
+}
+.nav-links
+{
+    display: none;
+    width: 100%;
+}
+.nav-bar
+{
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.nav-links ul
+{
+    flex-direction: column;
+    width: 100%;
+}
+
+ul li
+{
+    text-align: center;
+}
+
+.nav-links.active
+{
+    display: flex;
+}
+.nav-links .nav-link a
+{
+    padding: 0.5rem;
+}
+}
+
+@media(max-width: 1000px)
+{
+    .content
+    {
+        left: 5%;
+    }
+}
+.content
+{
+    position: relative;
+    top: 130px;
+     color: white;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.content a
+{
+    text-decoration: none;
+    color: rgba(255, 182, 193);
+    padding: 0.5rem 2rem;
+    margin: 2rem;
+    border-radius: 0.4em;
+    background-color:rgba(255, 255, 255);
+
+}
+
+.content a:hover
+{
+    background-color: rgba(255, 182, 193,0.85);
+    color: white;
+    border-radius: 0.6em;
+    transform: scale(1.08);
+    transition: background-color 0.3s ease-in;
+}
+.content h1
+{
+    font-family: Comforter;
+    font-size: 80px;
+    margin: 0;
+}
+
+.content p
+{
+    margin: 0;
+    font-size: 32px;
+}

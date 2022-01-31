@@ -1,0 +1,98 @@
+<% layout('../layout/boilerplate.ejs') %>
+<link href = "/show.css" rel = "stylesheet">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mb-5 offset-3">
+                <div id="geetCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <% geet.images.forEach((img, i)=> { %>
+                            <div class="carousel-item <%= i === 0 ? 'active' : ''%>">
+                                <img src="<%= img.url%>" class="d-block card-img-top img-fluid w-100 h-300" alt="">
+                            </div>
+                            <% }) %>
+
+                    </div>
+                    <% if(geet.images.length> 1) {%>
+                        <a class="carousel-control-prev" href="#geetCarousel" role="button" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+                        </a>
+                        <a class="carousel-control-next" href="#geetCarousel" role="button" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+                        </a>
+                        <% } %>
+                    </div>
+                <div class="card card-shadow mb-3">
+                                <div class="card-body">
+                                    <h1 class="card-title">
+                                        <%=geet.songName%>
+                                    </h1>
+                                    <p class="card-text lead">
+                                        <%=geet.artist%>
+                                    </p>
+                                    <p class="card-text lead">
+                                       Submitted by-<%=geet.author.username%>
+                                    </p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><b>Duration: </b>
+                                        <%=geet.duration%>
+                                    </li>
+                                </ul>
+                                
+                                <div class="card-footer">
+                                    <% if(currentUser && currentUser._id.equals(geet.author._id)){ %>
+                                    <form class = "d-inline" action="/geets/<%=geet._id%>/edit" method = "GET">
+                                        <button class="btn btn-success">Edit</button>
+                                    </form>
+    
+                                    <form class="d-inline" action="/geets/<%=geet._id%>?_method=DELETE" method="POST">
+                                        <button class="btn btn-danger">Delete</button>
+                                    </form>
+                                    <% } %>
+                                </div>
+                                
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-6 offset-3">
+                <% if(currentUser){ %>
+                <h5 class = "mb-5">Add a comment</h1>
+                <form action = "/geets/<%=geet._id%>/comments" method = "POST">
+
+                    <div class = "mb-3">
+                        <label class = "form-label" for = "body">Comment</label>
+                    <textarea class = "form-control" id = "body" name = "body" required>
+                     </textarea>
+                    </div>
+                    <div class = "mb-3">
+                        <button class = "btn btn-primary">Comment</button>
+                    </div>
+                </form>
+                <% } %>
+                <% if(geet.comments && geet.comments.length > 0){ %>
+                    <% for(let comment of geet.comments){ %>
+                        <div class="card mb-3">
+                            <div class="card-header">
+                              <%= comment.author.username %>
+                            </div>
+                            <div class="card-body">
+                              <p class="card-text"><%=comment.body%> </p>
+                              <% if(currentUser && comment.author._id.equals(currentUser._id)){ %>
+        
+                              <form class = "d-inline" action = "/geets/<%=geet._id%>/comment/<%=comment._id%>?_method=DELETE" method = "POST">
+                               <button class = "btn btn-danger">Delete</button>
+                              </form>
+                              <% } %>
+                             
+                            </div>
+                          </div>
+                    <% } %>
+                <% } %>
+                
+            </div>
+            
+        </div>
+    </div>

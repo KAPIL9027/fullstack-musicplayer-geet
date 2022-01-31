@@ -1,0 +1,33 @@
+<% layout('../layout/boilerplate.ejs') %>
+<div class="container d-flex justify-content-center align-items-center mt-3">
+    <div class = "row">
+        <div class = "col-md-6 col-sm-12">
+            <div class="card mb-3" style="width: 30rem;">
+                <img src="https://images.unsplash.com/photo-1599467556385-48b57868f038?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Edit your Geet.</h5>
+                    <form action = "/geets/<%=geet._id%>/edit?_method=PUT" method = "POST" enctype="multipart/form-data" class = "needs-validation" novalidate>
+                        <div class = "mb-3">
+                            <label class = "form-label" for = "song">Song Name</label>
+                            <input class = "form-control" type = "text" id = "song" name = "geet[songName]" value = "<%=geet.songName%>" required>
+                        </div>
+                        <div class = "mb-3">
+                            <label class = "form-label" for = "artist">Artist</label>
+                        <input type = "text" class = "form-control" id = "artist" name = "geet[artist]" value = "<%=geet.artist%>" required>
+                        </div>
+                        <div class = "mb-3">
+                            <label class = "form-label" for = "image">Cover</label>
+                            <input type = "file" class = "form-control" id = "image" name = "images" multiple > 
+                        </div>
+                        <div class = "mb-3">
+                            <label class = "form-label" for = "duration">Duration</label>
+                            <input type = "text" class = "form-control" id = "duration" name = "geet[duration]" value = <%=geet.duration ? geet.duration : ""%> required>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class = "btn btn-primary">Edit Geet...</button>
+                        </div>
+                    </form> 
+                </div>
+              </div>
+    </div>
+</div>

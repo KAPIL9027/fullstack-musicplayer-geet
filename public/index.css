@@ -1,0 +1,31 @@
+
+#container
+{
+    display:flex;
+    justify-content: flex-start;
+    gap: 10%;
+    flex-wrap: wrap;
+}
+img
+{
+    width: 250px;
+    height: 250px;
+}
+
+.fas
+{
+position: absolute;
+right: 0;
+margin-right: 2ch;
+margin-top: 0.5ch;
+cursor:pointer;
+}
+
+.card:hover
+{
+    border : 5px solid whitesmoke;
+    border-radius: 2%;
+    transition: border-color 0.8s ease-in;
+}
+
+
